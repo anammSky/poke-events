@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>The Kanto Fights</h1>
+      <nav id="filter-container">
+        <input
+          type="text"
+          class="filter-bar"
+          name="filter-bar"
+          id="filter-bar"
+          placeholder="Filter by Location"
+        />
+      </nav>
+    </header>
+    <main>
+      <section class="cards-container" id="cards-container"></section>
+      <section class="buy-container hidden" id="buy-container">
+        <p class="buy-labels">Event:</p>
+        <p class="buy-text" id="eventName"></p>
+        <p class="buy-labels">Location:</p>
+        <p class="buy-text" id="eventLocation"></p>
+        <p class="buy-labels">Date:</p>
+        <p class="buy-text" id="eventDate"></p>
+        <p class="buy-labels">Price:</p>
+        <p class="buy-text" id="eventPrice"></p>
+        <label class="buy-labels" for="tickets-quantiy">Quantity:</label>
+        <input
+          class="buy-text"
+          name="tickets-quantity"
+          id="tickets-quantity"
+          value="1"
+        />
+        <p class="buy-labels">Total:</p>
+        <p class="buy-text" id="total"></p>
+        <div class="btns-container">
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-buy">Buy</button>
+        </div>
+      </section>
+    </main>
+    <footer>By Ana Moros</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
