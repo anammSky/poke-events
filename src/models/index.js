@@ -1,3 +1,3 @@
-const BattleEvent = require("./event");
+const BattleEvent = require("./battleEvent.model");
 
 module.exports = { BattleEvent };

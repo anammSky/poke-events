@@ -1,108 +1,19 @@
-const pokemonEvents = [
-  {
-    name: "Battle for the Boulder Badge",
-    description:
-      "Collect your Boulder Badge, watch the champions face eachother at the Pewter City Gym.",
-    location: "Pewter",
-    badge: "Boulder",
-    date: new Date("2022/10/15"),
-    price: 25.0,
-  },
-  {
-    name: "Battle for the Cascade Badge",
-    description:
-      "Collect your Cascade Badge, watch the champions face eachother at the Cerulean City Gym.",
-    location: "Cerulean",
-    badge: "Cascade",
-    date: new Date("2022/10/18"),
-    price: 28.0,
-  },
-  {
-    name: "Battle for the Thunder Badge",
-    description:
-      "Collect your Thunder Badge, watch the champions face eachother at the Vermilion City Gym.",
-    location: "Vermilion",
-    badge: "Thunder",
-    date: new Date("2022/10/20"),
-    price: 32.0,
-  },
-  {
-    name: "Battle for the Rainbow Badge",
-    description:
-      "Collect your Rainbow Badge, watch the champions face eachother at the Celadon City Gym.",
-    location: "Celadon",
-    badge: "Rainbow",
-    date: new Date("2022/10/22"),
-    price: 35.0,
-  },
-  {
-    name: "Battle for the Soul Badge",
-    description:
-      "Collect your Soul Badge, watch the champions face eachother at the Fuchsia City Gym.",
-    location: "Fuchsia",
-    badge: "Soul",
-    date: new Date("2022/10/25"),
-    price: 35.0,
-  },
-  {
-    name: "Battle for the Marsh Badge",
-    description:
-      "Collect your Marsh Badge, watch the champions face eachother at the Saffron City Gym.",
-    location: "Saffron",
-    badge: "Marsh",
-    date: new Date("2022/10/28"),
-    price: 40.0,
-  },
-  {
-    name: "Battle for the Volcano Badge",
-    description:
-      "Collect your Volcano Badge, watch the champions face eachother at the Cinnabar Island Gym.",
-    location: "Cinnabar",
-    badge: "Volcano",
-    date: new Date("2022/10/30"),
-    price: 40.0,
-  },
-  {
-    name: "Battle the Elite Four: Lorelei!",
-    description:
-      "The champtions have collected every badge. It's time to take on the Elite Four over this two day event. Morning match against Lorelei.",
-    location: "Stadium",
-    badge: null,
-    date: new Date("2022/11/03"),
-    price: 50.0,
-  },
-  {
-    name: "Battle the Elite Four: Bruno!",
-    description:
-      "The champtions have collected every badge. It's time to take on the Elite Four over this two day event. Afternoon match against Bruno.",
-    location: "Stadium",
-    badge: null,
-    date: new Date("2022/11/03"),
-    price: 75.0,
-  },
-  {
-    name: "Battle the Elite Four: Agatha!",
-    description:
-      "With two Elite Battles under their belt, the last day of the two day tournament is here. Morning match against Agatha.",
-    location: "Stadium",
-    badge: null,
-    date: new Date("2022/11/04"),
-    price: 80.0,
-  },
-  {
-    name: "Battle the Elite Four: Lance!",
-    description:
-      "The final match of our battle season. Get ready to see our champtions in the afternoon match against Lance.",
-    location: "Stadium",
-    badge: null,
-    date: new Date("2022/11/05"),
-    price: 100.0,
-  },
-];
+async function getEventsData() {
+  try {
+    const response = await fetch("./api/battles/info");
+    const data = await response.json();
+    const sortedData = data.events.map((event) => event);
+    return sortedData;
+  } catch (error) {
+    throw error;
+  }
+}
 
 const cardContainer = document.getElementById("cards-container");
 
-createCards(pokemonEvents);
+const data = getEventsData();
+
+data.then((result) => createCards(result));
 
 document.getElementById("filter-bar").addEventListener("keydown", (e) => {
   const searchWord = e.target.value.toLowerCase();
@@ -164,7 +75,7 @@ function populateBuyForm(name, price, date, location) {
   }`;
 
   const eventDate = document.getElementById("eventDate");
-  eventDate.textContent = date.toDateString();
+  eventDate.textContent = new Date(date).toDateString();
 
   const eventPrice = document.getElementById("eventPrice");
   eventPrice.textContent = "$" + price.toFixed(2);
@@ -206,7 +117,7 @@ function createEventCard({ name, description, location, badge, date, price }) {
   eventPrice.textContent = "$" + price.toFixed(2);
 
   const eventDate = createEl("p", "card-date");
-  eventDate.textContent = date.toDateString();
+  eventDate.textContent = new Date(date).toDateString();
 
   const infoWrapper = createEl("div", "card-info");
   infoWrapper.append(eventPrice, eventDate);

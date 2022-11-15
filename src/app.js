@@ -1,14 +1,13 @@
 const express = require("express");
 const path = require("path");
+const { battleEventsRouter } = require("./routes");
 const app = express();
 
+app.use(express.json());
 app.use("/", express.static("public"));
-// app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../public/index.html"));
-//   //   res.send("Home Page");
-// });
+//set up routes for api
+app.use("/api/battles", battleEventsRouter);
 
 app.all("*", (req, res) => {
   res.status(404).send("<h1>resource not found</h1>");
