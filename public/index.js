@@ -1,22 +1,14 @@
 import createEventCard from "./componets/createEventCards.js";
+import getData from "./utils/api.js";
 import { createEl, createImg } from "./utils/utils.js";
-
-async function getEventsData() {
-  try {
-    const response = await fetch("./api/battles/info");
-    const data = await response.json();
-    const sortedData = data.events.map((event) => event);
-    return sortedData;
-  } catch (error) {
-    throw error;
-  }
-}
-
 const cardContainer = document.getElementById("cards-container");
 
-const data = getEventsData();
+const data = getData("battles/info");
 
-data.then((result) => createCards(result));
+data
+  .then((data) => data.events.map((event) => event))
+  .then((result) => createCards(result))
+  .catch((err) => console.error(err));
 
 document.getElementById("filter-bar").addEventListener("keydown", (e) => {
   const searchWord = e.target.value.toLowerCase();
