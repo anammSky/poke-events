@@ -1,0 +1,99 @@
+{
+    "pokemon_data": [
+        {
+          "name": "Battle for the Boulder Badge",
+          "description":
+            "Collect your Boulder Badge, watch the champions face eachother at the Pewter City Gym.",
+          "location": "Pewter",
+          "badge": "Boulder",
+          "date": "2022/10/15",
+          "price": 25
+        },
+        {
+          "name": "Battle for the Cascade Badge",
+          "description":
+            "Collect your Cascade Badge, watch the champions face eachother at the Cerulean City Gym.",
+          "location": "Cerulean",
+          "badge": "Cascade",
+          "date": "2022/10/18",
+          "price": 28
+        },
+        {
+          "name": "Battle for the Thunder Badge",
+          "description":
+            "Collect your Thunder Badge, watch the champions face eachother at the Vermilion City Gym.",
+          "location": "Vermilion",
+          "badge": "Thunder",
+          "date": "2022/10/20",
+          "price": 32
+        },
+        {
+          "name": "Battle for the Rainbow Badge",
+          "description":
+            "Collect your Rainbow Badge, watch the champions face eachother at the Celadon City Gym.",
+          "location": "Celadon",
+          "badge": "Rainbow",
+          "date": "2022/10/22",
+          "price": 35
+        },
+        {
+          "name": "Battle for the Soul Badge",
+          "description":
+            "Collect your Soul Badge, watch the champions face eachother at the Fuchsia City Gym.",
+          "location": "Fuchsia",
+          "badge": "Soul",
+          "date": "2022/10/25",
+          "price": 35
+        },
+        {
+          "name": "Battle for the Marsh Badge",
+          "description":
+            "Collect your Marsh Badge, watch the champions face eachother at the Saffron City Gym.",
+          "location": "Saffron",
+          "badge": "Marsh",
+          "date": "2022/10/28",
+          "price": 40
+        },
+        {
+          "name": "Battle for the Volcano Badge",
+          "description":
+            "Collect your Volcano Badge, watch the champions face eachother at the Cinnabar Island Gym.",
+          "location": "Cinnabar",
+          "badge": "Volcano",
+          "date": "2022/10/30",
+          "price": 40
+        },
+        {
+          "name": "Battle the Elite Four: Lorelei!",
+          "description":
+            "The champtions have collected every badge. It's time to take on the Elite Four over this two day event. Morning match against Lorelei.",
+          "location": "Stadium",
+          "date": "2022/11/03",
+          "price": 50
+        },
+        {
+          "name": "Battle the Elite Four: Bruno!",
+          "description":
+            "The champtions have collected every badge. It's time to take on the Elite Four over this two day event. Afternoon match against Bruno.",
+          "location": "Stadium",
+          "date": "2022/11/03",
+          "price": 75
+        },
+        {
+          "name": "Battle the Elite Four: Agatha!",
+          "description":
+            "With two Elite Battles under their belt, the last day of the two day tournament is here. Morning match against Agatha.",
+          "location": "Stadium",
+          "date": "2022/11/04",
+          "price": 80
+        },
+        {
+          "name": "Battle the Elite Four: Lance!",
+          "description":
+            "The final match of our battle season. Get ready to see our champtions in the afternoon match against Lance.",
+          "location": "Stadium",
+          "date": "2022/11/05",
+          "price": 100
+        }
+      ]
+}
