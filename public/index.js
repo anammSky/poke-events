@@ -17,9 +17,13 @@ price.then((data) => console.log(data));
 function createCards(arr) {
   cardContainer.replaceChildren();
 
-  for (let i = 0; i < arr.length; i++) {
-    cardContainer.append(createEventCard(arr[i]));
+  for (let event of arr) {
+    cardContainer.appendChild(createEventCard(event));
   }
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   cardContainer.append(createEventCard(arr[i]));
+  // }
 }
 
 //FILTER BAR CODE
