@@ -1,4 +1,5 @@
 import { createEl, createImg } from "../utils/utils.js";
+import resolveBuyTicket from "./buyTicket.js";
 
 function createEventCard({ name, description, location, badge, date, price }) {
   const eventTitle = createEl("h2", "card-title");
