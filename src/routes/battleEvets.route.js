@@ -13,4 +13,8 @@ battleEventsRouter.get("/info", async (req, res) => {
   res.status(200).send({ events: allBattleEvents });
 });
 
+battleEventsRouter.get("/:id", async (req, res) => {
+  const event = await BattleEvent.findByPk(req.params.id);
+  res.status(200).send(event);
+});
 module.exports = battleEventsRouter;

@@ -33,7 +33,7 @@ function createEventCard({ name, description, location, badge, date, price }) {
   infoWrapper.append(eventPrice, eventDate);
 
   const buyTicketBtn = createEl("button", "btn-buyTicket");
-  buyTicketBtn.textContent = "Buy Tickets";
+  buyTicketBtn.textContent = "Add to Cart";
   buyTicketBtn.addEventListener("click", () =>
     resolveBuyTicket(name, price, date, location)
   );
