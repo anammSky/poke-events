@@ -1,5 +1,5 @@
-import createEventCard from "./componets/createEventCards.js";
-import getData from "./utils/api.js";
+import createEventCard from "./componets/createEventCard.js";
+import { getData, postData } from "./utils/api.js";
 import { createEl, createImg } from "./utils/utils.js";
 const cardContainer = document.getElementById("cards-container");
 
@@ -10,9 +10,8 @@ data
   .then((result) => createCards(result))
   .catch((err) => console.error(err));
 
-const price = getData("battles/1");
-
-price.then((data) => console.log(data));
+// const price = getData("battles/1");
+// price.then((data) => console.log(data));
 
 function createCards(arr) {
   cardContainer.replaceChildren();
@@ -20,12 +19,23 @@ function createCards(arr) {
   for (let event of arr) {
     cardContainer.appendChild(createEventCard(event));
   }
-
-  // for (let i = 0; i < arr.length; i++) {
-  //   cardContainer.append(createEventCard(arr[i]));
-  // }
 }
 
+const buyPopUp = document.querySelector(".buy-container");
+const buyBtns = document.querySelectorAll(".btn-buyTicket");
+
+const form = document.getElementById("add-ticket-form");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  // e.stopImmediatePropagation();
+  const formData = new FormData(form);
+  const quantity = formData.get("tickets-quantity");
+  const id = formData.get("id");
+  console.log(id, quantity);
+  form.reset();
+
+  await postData("battles/add/event", { id: id, quantity: quantity });
+});
 //FILTER BAR CODE
 // document.getElementById("filter-bar").addEventListener("keydown", (e) => {
 //   const searchWord = e.target.value.toLowerCase();

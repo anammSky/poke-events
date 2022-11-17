@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "directories": {
-    "test": "tests"
+    "test": "jest"
   },
   "scripts": {
     "test": "jest --verbose --silent --runInBand",

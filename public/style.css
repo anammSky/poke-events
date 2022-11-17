@@ -18,7 +18,7 @@ body {
 @media (min-width: 1441px) {
   header,
   main,
-  footer {
+  ß footer {
     margin: 0 15% 0;
   }
 }
@@ -31,6 +31,8 @@ h1 {
   font-size: 2.3em;
   margin: 2% 5% 3%;
 }
+
+.btn-cart,
 .btn-buy,
 .btn-cancel,
 .btn-buyTicket {
@@ -44,6 +46,7 @@ h1 {
 }
 
 @media (hover: hover) {
+  .btn-cart:hover,
   .btn-buy:hover,
   .btn-cancel:hover,
   .btn-buyTicket:hover {

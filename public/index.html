@@ -18,7 +18,10 @@
   <body>
     <header>
       <h1>The Kanto Fights</h1>
-      <nav id="filter-container">
+      <button id="btn-cart" class="btn-cart">
+        Cart<span id="cart-num" class="cart-num"></span>
+      </button>
+      <!-- <nav id="filter-container">
         <input
           type="text"
           class="filter-bar"
@@ -26,7 +29,7 @@
           id="filter-bar"
           placeholder="Filter by Location"
         />
-      </nav>
+      </nav> -->
     </header>
     <main>
       <section class="cards-container" id="cards-container"></section>
@@ -39,19 +42,22 @@
         <p class="buy-text" id="eventDate"></p>
         <p class="buy-labels">Price:</p>
         <p class="buy-text" id="eventPrice"></p>
-        <label class="buy-labels" for="tickets-quantiy">Quantity:</label>
-        <input
-          class="buy-text"
-          name="tickets-quantity"
-          id="tickets-quantity"
-          value="1"
-        />
-        <p class="buy-labels">Total:</p>
-        <p class="buy-text" id="total"></p>
-        <div class="btns-container">
-          <button class="btn-cancel">Cancel</button>
-          <button class="btn-buy">Buy</button>
-        </div>
+        <form id="add-ticket-form">
+          <input type="hidden" name="id" id="event-id" />
+          <label class="buy-labels" for="tickets-quantity">Quantity:</label>
+          <input
+            class="buy-text"
+            name="tickets-quantity"
+            id="tickets-quantity"
+            value="1"
+          />
+          <p class="buy-labels">Total:</p>
+          <p class="buy-text" id="total"></p>
+          <div class="btns-container">
+            <input type="button" class="btn-cancel" value="Cancel" />
+            <input type="submit" class="btn-buy" value="Add" />
+          </div>
+        </form>
       </section>
     </main>
     <footer>By Ana Moros</footer>

@@ -1,3 +1,7 @@
 const BattleEvent = require("./battleEvent.model");
+const Cart = require("./cart.model");
 
-module.exports = { BattleEvent };
+BattleEvent.hasOne(Cart);
+Cart.hasMany(BattleEvent);
+
+module.exports = { BattleEvent, Cart };

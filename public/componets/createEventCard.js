@@ -1,7 +1,15 @@
 import { createEl, createImg } from "../utils/utils.js";
-import resolveBuyTicket from "./buyTicket.js";
+import addTicketsPopUp from "./addTicketsPopUp.js";
 
-function createEventCard({ name, description, location, badge, date, price }) {
+function createEventCard({
+  id,
+  name,
+  description,
+  location,
+  badge,
+  date,
+  price,
+}) {
   const eventTitle = createEl("h2", "card-title");
   eventTitle.textContent = name;
 
@@ -34,9 +42,10 @@ function createEventCard({ name, description, location, badge, date, price }) {
 
   const buyTicketBtn = createEl("button", "btn-buyTicket");
   buyTicketBtn.textContent = "Add to Cart";
-  buyTicketBtn.addEventListener("click", () =>
-    resolveBuyTicket(name, price, date, location)
-  );
+
+  buyTicketBtn.addEventListener("click", () => {
+    addTicketsPopUp(id, name, price, date, location);
+  });
 
   const cardWrapper = document.createElement("div");
   cardWrapper.classList.add("card-wrapper");
