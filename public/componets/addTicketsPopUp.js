@@ -9,22 +9,34 @@ export default function addTicketsPopUp(id, name, price, date, location) {
   const btnCancel = document.querySelector(".btn-cancel");
   const btnAdd = document.querySelector(".btn-buy");
 
-  btnCancel.addEventListener("click", (e) => {
-    e.preventDefault();
-    buyPopUp.classList.add("hidden");
-    buyPopUp.classList.remove("visible");
-    buyBtns.forEach((btn) => {
-      btn.disabled = buyPopUp.className.includes("hidden") ? false : true;
+  const btnsPopUp = document.querySelectorAll(".btn-pop-up");
+
+  btnsPopUp.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buyPopUp.classList.add("hidden");
+      buyPopUp.classList.remove("visible");
+      buyBtns.forEach((btn) => {
+        btn.disabled = buyPopUp.className.includes("hidden") ? false : true;
+      });
     });
   });
 
-  btnAdd.addEventListener("click", () => {
-    buyPopUp.classList.add("hidden");
-    buyPopUp.classList.remove("visible");
-    buyBtns.forEach((btn) => {
-      btn.disabled = buyPopUp.className.includes("hidden") ? false : true;
-    });
-  });
+  // btnCancel.addEventListener("click", (e) => {
+  //   // e.preventDefault();
+  //   buyPopUp.classList.add("hidden");
+  //   buyPopUp.classList.remove("visible");
+  //   buyBtns.forEach((btn) => {
+  //     btn.disabled = buyPopUp.className.includes("hidden") ? false : true;
+  //   });
+  // });
+
+  // btnAdd.addEventListener("click", () => {
+  //   buyPopUp.classList.add("hidden");
+  //   buyPopUp.classList.remove("visible");
+  //   buyBtns.forEach((btn) => {
+  //     btn.disabled = buyPopUp.className.includes("hidden") ? false : true;
+  //   });
+  // });
   const total = document.getElementById("total");
   const quantity = document.getElementById("tickets-quantity");
   quantity.value = 1;

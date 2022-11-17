@@ -21,8 +21,8 @@ function createCards(arr) {
   }
 }
 
-const buyPopUp = document.querySelector(".buy-container");
-const buyBtns = document.querySelectorAll(".btn-buyTicket");
+// const buyPopUp = document.querySelector(".buy-container");
+// const buyBtns = document.querySelectorAll(".btn-buyTicket");
 
 const form = document.getElementById("add-ticket-form");
 form.addEventListener("submit", async (e) => {
@@ -36,6 +36,7 @@ form.addEventListener("submit", async (e) => {
 
   await postData("battles/add/event", { id: id, quantity: quantity });
 });
+
 //FILTER BAR CODE
 // document.getElementById("filter-bar").addEventListener("keydown", (e) => {
 //   const searchWord = e.target.value.toLowerCase();
