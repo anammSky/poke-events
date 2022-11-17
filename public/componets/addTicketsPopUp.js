@@ -2,14 +2,15 @@ export default function addTicketsPopUp(id, name, price, date, location) {
   populateTicketsPopUp(name, price, date, location);
 
   const buyPopUp = document.querySelector(".buy-container");
+  const buyBtns = document.querySelectorAll(".btn-buyTicket");
+  const btnsPopUp = document.querySelectorAll(".btn-pop-up");
+
+  const total = document.getElementById("total");
+  const quantity = document.getElementById("tickets-quantity");
+  const eventId = document.getElementById("event-id");
+
   buyPopUp.classList.remove("hidden");
   buyPopUp.classList.add("visible");
-
-  const buyBtns = document.querySelectorAll(".btn-buyTicket");
-  const btnCancel = document.querySelector(".btn-cancel");
-  const btnAdd = document.querySelector(".btn-buy");
-
-  const btnsPopUp = document.querySelectorAll(".btn-pop-up");
 
   btnsPopUp.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -21,28 +22,8 @@ export default function addTicketsPopUp(id, name, price, date, location) {
     });
   });
 
-  // btnCancel.addEventListener("click", (e) => {
-  //   // e.preventDefault();
-  //   buyPopUp.classList.add("hidden");
-  //   buyPopUp.classList.remove("visible");
-  //   buyBtns.forEach((btn) => {
-  //     btn.disabled = buyPopUp.className.includes("hidden") ? false : true;
-  //   });
-  // });
-
-  // btnAdd.addEventListener("click", () => {
-  //   buyPopUp.classList.add("hidden");
-  //   buyPopUp.classList.remove("visible");
-  //   buyBtns.forEach((btn) => {
-  //     btn.disabled = buyPopUp.className.includes("hidden") ? false : true;
-  //   });
-  // });
-  const total = document.getElementById("total");
-  const quantity = document.getElementById("tickets-quantity");
-  quantity.value = 1;
-
-  const eventId = document.getElementById("event-id");
   eventId.value = id;
+  quantity.value = 1;
 
   quantity.addEventListener("input", (e) => {
     const newPrice = price * e.target.value;
