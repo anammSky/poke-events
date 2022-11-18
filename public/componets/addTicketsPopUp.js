@@ -2,7 +2,7 @@ export default function addTicketsPopUp(id, name, price, date, location) {
   populateTicketsPopUp(name, price, date, location);
 
   const buyPopUp = document.querySelector(".buy-container");
-  const buyBtns = document.querySelectorAll(".btn-buyTicket");
+  const buyBtns = document.querySelectorAll(".btn-addToCart");
   const btnsPopUp = document.querySelectorAll(".btn-pop-up");
 
   const total = document.getElementById("total");

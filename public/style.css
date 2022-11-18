@@ -18,7 +18,7 @@ body {
 @media (min-width: 1441px) {
   header,
   main,
-  ß footer {
+  footer {
     margin: 0 15% 0;
   }
 }
@@ -32,10 +32,9 @@ h1 {
   margin: 2% 5% 3%;
 }
 
-.btn-cart,
-.btn-buy,
-.btn-cancel,
-.btn-buyTicket {
+/*  --- BUTTON SYLING --- */
+
+.btn {
   background-color: var(--bg-highlight);
   border: none;
   border-radius: 5px;
@@ -44,12 +43,8 @@ h1 {
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-
 @media (hover: hover) {
-  .btn-cart:hover,
-  .btn-buy:hover,
-  .btn-cancel:hover,
-  .btn-buyTicket:hover {
+  .btn:hover {
     background-color: var(--bg-card);
     border: 2px solid var(--bg-highlight);
     border-radius: 5px;
@@ -61,12 +56,22 @@ h1 {
   }
 }
 
+.btn-cart {
+  padding: 2% 5%;
+}
 header {
   margin-bottom: 5%;
 }
 nav {
   display: flex;
   justify-content: center;
+}
+
+.header-cart-notification {
+  margin-left: 5px;
+  background-color: var(--bg-card);
+  border-radius: 100px;
+  padding: 8% 15%;
 }
 .filter-bar {
   background-color: var(--bg-card);
@@ -77,7 +82,7 @@ nav {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.cards-container {
+.events-container {
   display: grid;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fill, minmax(298px, 1fr));
@@ -163,7 +168,7 @@ nav {
   margin: 0;
 }
 
-.btn-buyTicket {
+.btn-addToCart {
   padding: 5% 3%;
 }
 

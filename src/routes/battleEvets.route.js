@@ -2,7 +2,7 @@ const { Router } = require("express");
 const battleEventsRouter = Router();
 const { BattleEvent, Cart } = require("../models");
 
-// route: /api/battles
+// ------- ROUTE: /api/battles -----------
 
 // battleEventsRouter.get("/", (req, res) => {
 //   res.status(200).send("Route success");
@@ -19,9 +19,9 @@ battleEventsRouter.get("/:id", async (req, res) => {
 });
 
 battleEventsRouter.post("/add/event", async (req, res) => {
-  console.log("back");
   const event = await BattleEvent.findByPk(req.body.id);
   await event.createCart({ quantity: req.body.quantity });
   res.sendStatus(200);
 });
+
 module.exports = battleEventsRouter;

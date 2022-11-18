@@ -40,10 +40,11 @@ function createEventCard({
   const infoWrapper = createEl("div", "card-info");
   infoWrapper.append(eventPrice, eventDate);
 
-  const buyTicketBtn = createEl("button", "btn-buyTicket");
-  buyTicketBtn.textContent = "Add to Cart";
+  const btnAddToCart = createEl("button", "btn-addToCart");
+  btnAddToCart.classList.add("btn");
+  btnAddToCart.textContent = "Add to Cart";
 
-  buyTicketBtn.addEventListener("click", () => {
+  btnAddToCart.addEventListener("click", () => {
     addTicketsPopUp(id, name, price, date, location);
   });
 
@@ -54,7 +55,7 @@ function createEventCard({
     imgContainer,
     eventDescription,
     infoWrapper,
-    buyTicketBtn
+    btnAddToCart
   );
 
   const card = createEl("article", "card");

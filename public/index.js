@@ -1,11 +1,7 @@
 import createEventCard from "./componets/createEventCard.js";
 import { getData, postData } from "./utils/api.js";
-import { createEl, createImg } from "./utils/utils.js";
-const cardContainer = document.getElementById("cards-container");
 
-const data = getData("battles/info");
-
-data
+getData("battles/info")
   .then((data) => data.events.map((event) => event))
   .then((result) => createCards(result))
   .catch((err) => console.error(err));
@@ -14,6 +10,7 @@ data
 // price.then((data) => console.log(data));
 
 function createCards(arr) {
+  const cardContainer = document.getElementById("events-container");
   cardContainer.replaceChildren();
 
   for (let event of arr) {
@@ -27,14 +24,18 @@ function createCards(arr) {
 const form = document.getElementById("add-ticket-form");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  // e.stopImmediatePropagation();
   const formData = new FormData(form);
   const quantity = formData.get("tickets-quantity");
   const id = formData.get("id");
-  console.log(id, quantity);
   form.reset();
-
   await postData("battles/add/event", { id: id, quantity: quantity });
+
+  //update notification bubble
+  const notificationBubble = document.getElementById("cart-num");
+  const currentTickets = Number(notificationBubble.textContent);
+  notificationBubble.textContent = currentTickets + Number(quantity);
+  if (notificationBubble.textContent !== "")
+    notificationBubble.classList.add("header-cart-notification");
 });
 
 //FILTER BAR CODE
